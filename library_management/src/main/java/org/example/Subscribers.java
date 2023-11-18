@@ -7,23 +7,13 @@ public class Subscribers extends User {
         super(id, firstName, lastName, creationDate);
     }
 
-    public int getFollowerCount() {
-        return subscriberCount;
-    }
-
-    public void setFollowerCount(int followerCount) {
-        this. subscriberCount = followerCount;
-    }
-
     @Override
     public String toString() {
-        return "Followers{" +
+        return "Subscribers{" +
                 "id='" + getId() + '\'' +
                 ", firstName='" + getFirstName() + '\'' +
                 ", lastName='" + getLastName() + '\'' +
-                ", email='" + getEmail() + '\'' +
                 ", creationDate=" + getCreationDate() +
-                ", followerCount=" +  subscriberCount +
                 '}';
     }
 }

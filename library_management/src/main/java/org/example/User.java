@@ -6,16 +6,12 @@ public class User {
     private int id;
     private String firstName;
     private String lastName;
-    private String email;
-    private String phone;
     private LocalDate creationDate;
 
-    public User(int id, String firstName, String lastName, String email, String phone, LocalDate creationDate) {
+    public User(int id, String firstName, String lastName, LocalDate creationDate) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
-        this.phone = phone;
         this.creationDate = creationDate;
     }
     public int getId() {
@@ -42,22 +38,6 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public LocalDate getCreationDate() {
         return creationDate;
     }
@@ -72,8 +52,6 @@ public class User {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", phone_number='" + phone + '\'' +
                 ", creation_date=" + creationDate +
                 '}';
     }

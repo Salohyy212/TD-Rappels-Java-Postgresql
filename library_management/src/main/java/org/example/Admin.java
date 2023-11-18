@@ -5,8 +5,8 @@ import java.time.LocalDate;
 public class Admin extends User {
     private String role;
 
-    public Admin(int id, String firstName, String lastName, String email, String phone, LocalDate creationDate, String role) {
-        super(id, firstName, lastName, email, phone, creationDate);
+    public Admin(int id, String firstName, String lastName, LocalDate creationDate, String role) {
+        super(id, firstName, lastName, creationDate);
         this.role = role;
     }
 
@@ -24,7 +24,6 @@ public class Admin extends User {
                 "id='" + getId() + '\'' +
                 ", firstName='" + getFirstName() + '\'' +
                 ", lastName='" + getLastName() + '\'' +
-                ", email='" + getEmail() + '\'' +
                 ", creationDate=" + getCreationDate() +
                 ", role='" + role + '\'' +
                 '}';

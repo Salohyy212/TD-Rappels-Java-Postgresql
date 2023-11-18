@@ -3,6 +3,11 @@ package org.example;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Main {
     private final String url;
@@ -10,6 +15,7 @@ public class Main {
     private final String password;
     private static Main instance;
     private Connection connection;
+    private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
     private Main(String url, String username, String password) {
         this.url = url;
@@ -41,13 +47,31 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        // Exemple d'utilisation
         Main mainInstance = Main.getInstance();
         Connection conn = mainInstance.getConnection();
 
-        // Faire quelque chose avec la connexion...
+        AuthorCrudOperations authorCrud = new AuthorCrudOperations();
+        List<Author> authors = authorCrud.findAll();
+        logger.info("List of authors : {}", authors);
 
-        // N'oubliez pas de fermer la connexion lorsque vous avez fini.
+        BookCrudOperations bookCrud = new BookCrudOperations();
+        List<Book> books = bookCrud.findAll();
+        logger.info("List of books : {}", books);
+
+        SubscribersCrudOperations subscribersCrud = new SubscribersCrudOperations();
+        List<Subscribers> subscribers = subscribersCrud.findAll();
+        logger.info("List of subscribers : {}", subscribers);
+
+        SubscribersCrudOperations subscribersCrudOperations = new SubscribersCrudOperations();
+        Subscribers newSubscriber = new Subscribers(5, "Marie","Baker", LocalDate.now());
+        Subscribers savedSubscriber = subscribersCrudOperations.save(newSubscriber);
+        System.out.println("New subscriber added: " + savedSubscriber);
+
+        AuthorCrudOperations authorCrudOperations = new AuthorCrudOperations();
+        Author authorToDelete = authorCrudOperations.findAll().get(2);
+        boolean isAuthorDeleted = authorCrudOperations.delete(authorToDelete);
+        System.out.println("L'auteur a-t-il été supprimé ? " + isAuthorDeleted);
+
         try {
             if (conn != null && !conn.isClosed()) {
                 conn.close();

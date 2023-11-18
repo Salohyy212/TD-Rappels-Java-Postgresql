@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS author (
     sex CHAR(1) CHECK (sex IN ('M', 'F'))
     );
 
--- Ajouter trois lignes de données par défaut
+
 INSERT INTO author (first_name, last_name, sex) VALUES
       ('Stephen','King', 'M'),
       ('Dan','Brown','M'),
