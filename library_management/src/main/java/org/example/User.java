@@ -18,8 +18,6 @@ public class User {
         this.phone = phone;
         this.creationDate = creationDate;
     }
-
-
     public int getId() {
         return id;
     }

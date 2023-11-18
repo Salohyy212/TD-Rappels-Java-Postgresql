@@ -2,20 +2,17 @@ package org.example;
 
 import java.time.LocalDate;
 
-public class Followers extends User {
-    private int followerCount;
-
-    public Followers(int id, String firstName, String lastName, String email, String phone, LocalDate creationDate, int followerCount) {
-        super(id, firstName, lastName, email, phone, creationDate);
-        this.followerCount = followerCount;
+public class Subscribers extends User {
+    public Subscribers(int id, String firstName, String lastName, LocalDate creationDate) {
+        super(id, firstName, lastName, creationDate);
     }
 
     public int getFollowerCount() {
-        return followerCount;
+        return subscriberCount;
     }
 
     public void setFollowerCount(int followerCount) {
-        this.followerCount = followerCount;
+        this. subscriberCount = followerCount;
     }
 
     @Override
@@ -26,7 +23,7 @@ public class Followers extends User {
                 ", lastName='" + getLastName() + '\'' +
                 ", email='" + getEmail() + '\'' +
                 ", creationDate=" + getCreationDate() +
-                ", followerCount=" + followerCount +
+                ", followerCount=" +  subscriberCount +
                 '}';
     }
 }
