@@ -1,0 +1,11 @@
+org\example\PostgresqlConf.class
+org\example\AuthorCrudOperations.class
+org\example\BookCrudOperations.class
+org\example\Main.class
+org\example\User.class
+org\example\CrudOperations.class
+org\example\Subscribers.class
+org\example\Author.class
+org\example\SubscribersCrudOperations.class
+org\example\Book.class
+org\example\Admin.class
