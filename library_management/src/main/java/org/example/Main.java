@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,7 +41,8 @@ public class Main {
             return connection;
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new RuntimeException("Erreur lors de la connexion à la base de données.", e);
+            throw new RuntimeException("\n" +
+                    "Error connecting to database.", e);
         }
     }
 
@@ -63,14 +63,15 @@ public class Main {
         logger.info("List of subscribers : {}", subscribers);
 
         SubscribersCrudOperations subscribersCrudOperations = new SubscribersCrudOperations();
-        Subscribers newSubscriber = new Subscribers(5, "Marie","Baker", LocalDate.now());
+        Subscribers newSubscriber = new Subscribers(6, "James","Hill", LocalDate.now());
         Subscribers savedSubscriber = subscribersCrudOperations.save(newSubscriber);
         System.out.println("New subscriber added: " + savedSubscriber);
 
-        AuthorCrudOperations authorCrudOperations = new AuthorCrudOperations();
-        Author authorToDelete = authorCrudOperations.findAll().get(2);
-        boolean isAuthorDeleted = authorCrudOperations.delete(authorToDelete);
-        System.out.println("L'auteur a-t-il été supprimé ? " + isAuthorDeleted);
+        BookCrudOperations bookCrudOperations = new BookCrudOperations();
+        Book bookToDelete = bookCrudOperations.findAll().get(0);
+        boolean isBookDeleted = bookCrudOperations.delete(bookToDelete);
+        System.out.println("Has the book been deleted ? " + isBookDeleted);
+
 
         try {
             if (conn != null && !conn.isClosed()) {
